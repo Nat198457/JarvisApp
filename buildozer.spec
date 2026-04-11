@@ -1,59 +1,22 @@
 
 [app]
-
-; (str) Title of your application
 title = Jarvis
-
-; (str) Package name
 package.name = jarvis
-
-; (str) Package domain - cambia 'tu.nombre' por lo que quieras
-package.domain = org.jarvis.v29
-
-; (str) Source code where your app.py is located
+package.domain = org.nat
 source.dir =.
-
-; (list) Source files to include
-source.include_exts = py
-
-; (str) Application version
+source.include_exts = py,kv,png,jpg
 version = 2.9
-
-; (list) Requirements for your app
-requirements = python3,kivy,pyjnius,speechrecognition,pyttsx3,requests,cryptography
-
-; (list) Permissions needed
-android.permissions = RECORD_AUDIO,WRITE_EXTERNAL_STORAGE,FOREGROUND_SERVICE,WAKE_LOCK,INTERNET
-
-; (str) Orientation
+requirements = python3,kivy,pyjnius,speechrecognition
 orientation = portrait
-
-; (bool) Indicate if the application should be fullscreen or not
 fullscreen = 0
 
-; (list) List of service to launch
-services =
+[buildozer]
+log_level = 2
 
-; (str) Android API to use
-android.api = 33
-
-; (str) Minimum API your APK will support
+[android]
+android.permissions = RECORD_AUDIO,INTERNET
+android.api = 31
 android.minapi = 21
-
-; (str) Android NDK version
-android.ndk = 25b
-
-; (bool) Use --private storage
-android.private_storage = True
-
-; (str) Android entry point
-android.entrypoint = org.kivy.android.PythonService
-
-; (str) Android app theme
-android.theme = @android:style/Theme.NoTitleBar
-
-; (list) Android whitelist
-android.whitelist =
-
-; (str) Android architecture
-android.archs
+android.ndk = 23b
+android.archs = arm64-v8a, armeabi-v7a
+android.accept_sdk_license = True
