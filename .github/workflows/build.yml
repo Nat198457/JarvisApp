@@ -6,12 +6,16 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
     - uses: actions/checkout@v4
-    - name: Build APK
-      uses: digreatbrian/buildozer-action@v2
+    
+    - name: Build with Buildozer
+      uses: ArtemSBulgakov/buildozer-action@v1
+      id: buildozer
       with:
-        python-version: 3.10
-    - name: Subir APK
+        workdir: .
+        buildozer_version: stable
+    
+    - name: Upload artifacts
       uses: actions/upload-artifact@v4
       with:
         name: jarvis-apk
-        path: bin/*.apk
+        path: ${{ steps.buildozer.outputs.filename }}
